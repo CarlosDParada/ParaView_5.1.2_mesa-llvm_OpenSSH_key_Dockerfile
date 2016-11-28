@@ -30,6 +30,8 @@ RUN mkdir /root/.ssh
 RUN ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa
 RUN mv /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 RUN chmod 600 /root/.ssh/authorized_keys
+RUN cat "StrictHostKeyChecking=no" > /root/.ssh/config
+RUN chmod 600 /root/.ssh/config
 RUN chmod 700 /root/.ssh
 
 # Use port 11111
