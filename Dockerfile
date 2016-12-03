@@ -1,5 +1,5 @@
 # This Dockerfile creates a Docker image of "ParaView_5.1.2 with OpenGL and OSMesa using llvmpipe, X Window System, OpenSSH, MPICH, Python and FFmpeg".
-# It installs MPICH, GCC, GCC-C++, Make, Git, Python, OpenGL and OSMesa using llvmpipe, OpenGLU, X Window System, OpenSSH, CMake, FFmpeg, ParaView, submodules of ParaView (VTK, IceT, etc.).
+# It installs MPICH, GCC, GCC-C++, Make, Git, Python, OpenGL and OSMesa using llvmpipe, OpenGLU, X Window System, OpenSSH, nslookup, CMake, FFmpeg, ParaView, submodules of ParaView (VTK, IceT, etc.).
 
 # FROM ishidakazuya/paraview_5.1.2_mesa-llvm
 FROM ishidakazuya/paraview_5.1.2_mesa-llvm:latest
@@ -12,6 +12,9 @@ RUN yum -y update
 
 # Install OpenSSH
 RUN yum -y install openssh openssh-server openssh-clients
+
+# Install nslookup
+RUN yum -y install bind-utils
 
 # Configure sshd
 RUN mkdir /var/run/sshd
