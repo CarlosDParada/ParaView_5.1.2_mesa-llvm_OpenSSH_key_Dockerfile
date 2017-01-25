@@ -1,4 +1,4 @@
-# This Dockerfile creates a Docker image of "ParaView_5.1.2 with OpenGL and OSMesa using llvmpipe, X Window System, OpenSSH, MPICH, Python and FFmpeg".
+# This Dockerfile creates an image of "ParaView_5.1.2 with OpenGL and OSMesa using llvmpipe, X Window System, OpenSSH, MPICH, Python and FFmpeg".
 
 # FROM ishidakazuya/paraview_5.1.2_mesa-llvm
 FROM ishidakazuya/paraview_5.1.2_mesa-llvm:latest
@@ -8,7 +8,7 @@ MAINTAINER ishidakazuya
 
 # Update, install and configure sshd
 RUN yum -y update \
-&& yum -y install openssh openssh-server openssh-clients bind-utils
+&& yum -y install openssh openssh-server openssh-clients bind-utils \
 && mkdir /var/run/sshd \
 && sed -i -e s/\#PermitRootLogin\ yes/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
 && sed -i -e s/\#RSAAuthentication\ yes/RSAAuthentication\ yes/ /etc/ssh/sshd_config \
