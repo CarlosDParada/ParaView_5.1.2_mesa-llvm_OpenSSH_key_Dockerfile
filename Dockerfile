@@ -8,8 +8,7 @@ MAINTAINER ishidakazuya
 
 # Update, install and configure sshd
 RUN yum -y update \
-&& yum -y install openssh openssh-server openssh-clients \
-&& yum -y install bind-utils \
+&& yum -y install openssh openssh-server openssh-clients bind-utils
 && mkdir /var/run/sshd \
 && sed -i -e s/\#PermitRootLogin\ yes/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
 && sed -i -e s/\#RSAAuthentication\ yes/RSAAuthentication\ yes/ /etc/ssh/sshd_config \
