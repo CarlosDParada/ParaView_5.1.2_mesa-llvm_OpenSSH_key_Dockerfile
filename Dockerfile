@@ -6,9 +6,10 @@ FROM ishidakazuya/paraview_5.1.2_mesa-llvm:latest
 # MAINTAINER is ishidakauya
 MAINTAINER ishidakazuya
 
-# Update, install and configure sshd
+# Configure sshd
 RUN yum -y update \
 && yum -y install openssh openssh-server openssh-clients bind-utils \
+&& yum clean all \
 && mkdir /var/run/sshd \
 && sed -i -e s/\#PermitRootLogin\ yes/PermitRootLogin\ yes/ /etc/ssh/sshd_config \
 && sed -i -e s/\#RSAAuthentication\ yes/RSAAuthentication\ yes/ /etc/ssh/sshd_config \
